@@ -120,6 +120,16 @@
   }
 }
 </style>
+<!-- 👇 Script now loads early + reliably -->
+<script>
+  function toggleLavoMenu() {
+    const nav = document.getElementById('lavoNav');
+    if (nav) {
+      nav.classList.toggle('active');
+    }
+  }
+</script>
+
 
 <!-- Sticky Header -->
 <div class="lavo-global-header">
@@ -146,10 +156,3 @@
   </nav>
 </div>
 <div class="lavo-header-spacer"></div>
-
-<script>
-  function toggleLavoMenu() {
-    const nav = document.getElementById('lavoNav');
-    nav.classList.toggle('active');
-  }
-</script>
