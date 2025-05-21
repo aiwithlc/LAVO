@@ -76,11 +76,24 @@
       text-align: center;
     }
   }
+.lavo-global-header .nav-group {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
 
   /* Prevent layout jump below sticky header */
   .lavo-header-spacer {
     height: 72px;
   }
+  @media (max-width: 768px) {
+  .lavo-global-header .nav-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
 </style>
 
 <!-- Sticky nav + spacer -->
@@ -88,6 +101,7 @@
   <a href="index.html" class="logo">
     <img src="https://cdn.jsdelivr.net/gh/aiwithlc/LAVO/Lavo%20Concept%20Elements.png" alt="LAVO Concept Logo" />
   </a>
+ <div class="nav-group">
   <nav>
     <a href="index.html">Inicio</a>
     <a href="mensual.html">Planes</a>
@@ -95,5 +109,6 @@
     <a href="https://wa.me/18494672703" target="_blank">Contacto</a>
   </nav>
   <a href="Login.html" class="cta">🔐 Ingresar</a>
+</div>
 </div>
 <div class="lavo-header-spacer"></div>
