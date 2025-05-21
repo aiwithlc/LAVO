@@ -45,7 +45,7 @@
   const clients = {
     "lau": {
       password: "lau123",
-      dashboard: "/lavo-client-lau"
+      dashboard: "ClientLau.html"
     },
     "natalia": {
       password: "nataClient2024",
@@ -79,7 +79,7 @@
   function logoutClient() {
     sessionStorage.clear();
     localStorage.removeItem("clientRemembered");
-    window.location.href = "/lavo-login";
+    window.location.href = "Login.html";
   }
 
   // Auto-login or show logout button
