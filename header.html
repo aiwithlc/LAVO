@@ -1,8 +1,7 @@
 <!-- 🌐 LAVO Concept Sticky Global Header -->
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Open+Sans&display=swap" rel="stylesheet">
-
 <style>
-  .lavo-global-header {
+.lavo-global-header {
   position: fixed;
   top: 0;
   width: 100%;
@@ -11,12 +10,18 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.8rem 2rem;
   font-family: 'Open Sans', sans-serif;
   transition: background 0.3s ease;
+}
+
+/* ✅ The fix: proper max-width layout */
+.lavo-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.8rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .lavo-global-header .logo img {
@@ -64,10 +69,9 @@
 
 /* Mobile styles */
 @media (max-width: 768px) {
-  .lavo-global-header {
+  .lavo-header-inner {
     flex-direction: column;
     align-items: flex-start;
-    padding: 1rem;
   }
 
   .lavo-global-header nav {
@@ -82,8 +86,6 @@
     text-align: center;
   }
 }
-
-
 </style>
 
 <!-- Sticky nav + spacer -->
@@ -92,15 +94,13 @@
     <a href="index.html" class="logo">
       <img src="https://cdn.jsdelivr.net/gh/aiwithlc/LAVO/Lavo%20Concept%20Elements.png" alt="LAVO Concept Logo" />
     </a>
-    <div class="nav-group">
-      <nav>
-        <a href="index.html">Inicio</a>
-        <a href="mensual.html">Planes</a>
-        <a href="Registro.html">Registro</a>
-        <a href="https://wa.me/18494672703" target="_blank">Contacto</a>
-      </nav>
-      <a href="Login.html" class="cta">🔐 Ingresar</a>
-    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="mensual.html">Planes</a>
+      <a href="Registro.html">Registro</a>
+      <a href="https://wa.me/18494672703" target="_blank">Contacto</a>
+    </nav>
+    <a href="Login.html" class="cta">🔐 Ingresar</a>
   </div>
 </div>
 <div class="lavo-header-spacer"></div>
