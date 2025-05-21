@@ -1,0 +1,443 @@
+<!-- 🌸 LAVO CONCEPT – CLIENT ONBOARDING FORM (HTML VERSION) -->
+<!-- Apple-level UX/UI with LAVO branding + enhanced logic-ready fields -->
+<style>
+  :root {
+    --lavo-yellow: #FFD84B;
+    --lavo-lavender: #CAB5E2;
+    --lavo-rose: #F6D3D5;
+    --lavo-dark: #2A2B2A;
+    --form-radius: 18px;
+    --form-shadow: 0 12px 32px rgba(0,0,0,0.06);
+  }
+
+  #lavo-form-wrapper {
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+
+  .lavo-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    animation: fadeIn 1s ease-out;
+  }
+
+  .form-heading {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--lavo-dark);
+    animation: fadeIn 0.8s ease-in-out;
+  }
+
+  .form-subheading {
+    font-size: 1.1rem;
+    font-family: 'Open Sans', sans-serif;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  #lavo-intake-form {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    background: white;
+    border-radius: var(--form-radius);
+    box-shadow: var(--form-shadow);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: var(--lavo-dark);
+    line-height: 1.6;
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  #lavo-intake-form h2 {
+    color: var(--lavo-dark);
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-family: 'Archivo Black', sans-serif;
+  }
+
+  #lavo-intake-form label {
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: var(--lavo-dark);
+  }
+
+  #lavo-intake-form input,
+  #lavo-intake-form select,
+  #lavo-intake-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #CAB5E2;
+    border-radius: 12px;
+    background-color: #fdfdfd;
+    transition: border 0.3s;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--lavo-dark);
+  }
+
+  #lavo-intake-form input:focus,
+  #lavo-intake-form select:focus,
+  #lavo-intake-form textarea:focus {
+    border-color: var(--lavo-yellow);
+    outline: none;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(255, 216, 75, 0.3);
+    color: var(--lavo-dark);
+  }
+
+  #lavo-intake-form button[type="submit"] {
+    display: inline-block;
+    background: linear-gradient(to right, var(--lavo-lavender), var(--lavo-yellow));
+    color: var(--lavo-dark);
+    font-weight: bold;
+    padding: 0.85rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Archivo Black', sans-serif;
+    box-shadow: 0 4px 14px rgba(202, 181, 226, 0.3);
+  }
+
+  #lavo-intake-form button[type="submit"]:hover {
+    background: var(--lavo-rose);
+    transform: scale(1.02);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  }
+
+  #lavo-intake-form button[type="submit"]:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  }
+
+  .checkbox-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .checkbox-grid label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    border: 2px solid var(--lavo-lavender);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--lavo-dark);
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-family: 'Open Sans', sans-serif;
+    transition: all 0.25s ease-in-out;
+    min-width: 120px;
+    text-align: center;
+  }
+
+  .checkbox-grid input[type="checkbox"] {
+    display: none;
+  }
+
+  .checkbox-grid input[type="checkbox"]:checked + span {
+    background-color: var(--lavo-yellow);
+    color: var(--lavo-dark);
+    font-weight: bold;
+    border-color: transparent;
+  }
+
+  .checkbox-grid span {
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    transition: background 0.25s ease;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .checkbox-grid label:focus-within,
+  .checkbox-grid input[type="checkbox"]:focus + span {
+    outline: 2px solid var(--lavo-yellow);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 480px) {
+    .form-heading {
+      font-size: 1.5rem;
+    }
+    .form-subheading {
+      font-size: 1rem;
+    }
+    #lavo-intake-form {
+      padding: 1.5rem;
+    }
+  }
+  input[type="checkbox"]:focus {
+  outline: 2px solid var(--lavo-yellow);
+  outline-offset: 2px;
+}
+
+</style>
+
+
+<div id="lavo-form-wrapper">
+     <img src="https://lcacosta.com/wp-content/uploads/2025/04/Lavo-Concept-Elements.png" alt="LAVO Concept logo" class="lavo-logo">
+  <h1 class="form-heading">✨ Bienvenida a LAVO Concept</h1>
+  <p class="form-subheading">Llena este formulario para que podamos personalizar tu experiencia ✨</p>
+</div>
+
+<form id="lavo-intake-form" onsubmit="handleLavoSubmit(event)">
+
+
+  <h2>ℹ️️ Datos Personales</h2>
+  <label for="nombre_completo">Nombre Completo:<br><input type="text" name="nombre_completo" id="nombre_completo" required></label>
+  <label for="fecha_nacimiento">Fecha de Nacimiento:<br><input type="date" name="fecha_nacimiento" id="fecha_nacimiento" required></label>
+  <label for="email">Correo Electrónico:<br><input type="email" name="email" id="email" required></label>
+  <label for="telefono">Teléfono/Celular:<br><input type="text" name="telefono" id="telefono"></label>
+  <label for="tipo_cliente">Tipo de clienta:<br>
+    <select name="tipo_cliente" id="tipo_cliente">
+      <option value="">Selecciona una opción</option>
+      <option value="grupal">Clases Grupales</option>
+      <option value="1a1">Entrenamiento 1:1</option>
+      <option value="membresia">Membresía Virtual</option>
+      <option value="evento">Evento Presencial</option>
+    </select>
+    
+ <label for="intereses" style="display: block; margin-bottom: 1rem; font-weight: 600; color: var(--lavo-dark); font-family: 'Archivo Black', sans-serif;">
+  ¿Qué te interesa explorar?
+</label>
+<div class="checkbox-grid" role="group" aria-labelledby="intereses">
+  <label><input type="checkbox" name="intereses[]" value="fuerza"><span>💪 Fuerza</span></label>
+  <label><input type="checkbox" name="intereses[]" value="movilidad"><span>🤸 Movilidad</span></label>
+  <label><input type="checkbox" name="intereses[]" value="elasticidad"><span>🧘 Elasticidad</span></label>
+  <label><input type="checkbox" name="intereses[]" value="velocidad"><span>🏃 Velocidad</span></label>
+  <label><input type="checkbox" name="intereses[]" value="nutricion"><span>🍽️ Nutrición</span></label>
+  <label><input type="checkbox" name="intereses[]" value="sueño"><span>😴 Mejora del sueño</span></label>
+  <label><input type="checkbox" name="intereses[]" value="menstrual"><span>🩸 Bienestar hormonal</span></label>
+  <label><input type="checkbox" name="intereses[]" value="eventos"><span>🎉 Eventos presenciales</span></label>
+  <label><input type="checkbox" name="intereses[]" value="comunidad"><span>👯‍♀️ Comunidad</span></label>
+</div>
+<input type="hidden" name="intereses" id="intereses-hidden" />
+
+<script>
+  document.querySelector('form').addEventListener('submit', function (e) {
+    const selected = Array.from(document.querySelectorAll('input[name="intereses[]"]:checked')).map(cb => cb.value);
+    document.getElementById('intereses-hidden').value = selected.join(', ');
+  });
+</script>
+  <label for="referido">¿Cómo llegaste a LAVO?<br>
+    <select name="referido" id="referido">
+      <option value="">Selecciona una opción</option>
+      <option value="instagram">Instagram</option>
+      <option value="tiktok">TikTok</option>
+      <option value="boca">Recomendación / Boca a boca</option>
+      <option value="evento">Evento en vivo</option>
+      <option value="web">Google o Sitio Web</option>
+    </select>
+  </label>
+
+  
+  <label for="nivel_experiencia">Nivel de experiencia:<br>
+    <select name="nivel_experiencia" id="nivel_experiencia">
+      <option value="">Selecciona una opción</option>
+      <option value="principiante">Principiante</option>
+      <option value="intermedio">Intermedio</option>
+      <option value="avanzado">Avanzado</option>
+    </select>
+  </label>
+  <label for="preferencia_horaria">¿Qué días/horarios prefieres entrenar?<br>
+    <select name="preferencia_horaria" id="preferencia_horaria">
+      <option value="">Selecciona una opción</option>
+      <option value="manana">Mañanas</option>
+      <option value="tarde">Tardes</option>
+      <option value="noche">Noches</option>
+      <option value="finde">Fines de semana</option>
+    </select>
+  </label>
+  <label for="ubicacion">Ciudad o país donde vives:<br><input type="text" name="ubicacion" id="ubicacion"></label>
+  <label for="consentimiento_imagen">¿Das tu consentimiento para que se utilicen fotos o videos tuyos en redes?<br>
+    <select name="consentimiento_imagen" id="consentimiento_imagen">
+      <option value="">Selecciona una opción</option>
+      <option value="si">Sí, sin problema</option>
+      <option value="limitado">Solo si estoy de acuerdo en ese momento</option>
+      <option value="no">Prefiero que no</option>
+    </select>
+  </label>
+
+  <hr>
+
+  <h2>🏃🏽‍♀️ Historia y Actividad Física</h2>
+  <label>Tipo de trabajo:<br><input type="text" name="tipo_trabajo"></label>
+  <label>Actividad física actual:<br><textarea name="actividad_actual"></textarea></label>
+  <label>Historia deportiva:<br><textarea name="historia_deportiva"></textarea></label>
+
+  <hr>
+
+  <h2>🌟 Objetivos</h2>
+  <label>Objetivo principal:<br><textarea name="objetivo_principal"></textarea></label>
+  <label>Meta a corto plazo (1 mes):<br><input type="text" name="meta_corto"></label>
+  <label>Meta a medio plazo (2-3 meses):<br><input type="text" name="meta_medio"></label>
+
+  <hr>
+
+  <h2>🍽️ Relación con la Alimentación</h2>
+  <label>¿Cómo es tu relación con la comida?<br><textarea name="relacion_comida"></textarea></label>
+  <label>¿Hay alimentos que no consumes? ¿Por qué?<br><textarea name="restricciones_alimenticias"></textarea></label>
+
+  <hr>
+
+  <h2>🛌 Sueño & Recuperación</h2>
+  <label>¿Cómo duermes?<br><textarea name="sueno"></textarea></label>
+
+  <hr>
+
+  <h2>🩸 Ciclo Menstrual y Salud Hormonal</h2>
+  <label>¿Tienes ciclo menstrual regular?<br>
+    <select name="ciclo_regular">
+      <option value="">Selecciona una opción</option>
+      <option value="si">Sí</option>
+      <option value="no">No</option>
+      <option value="irregular">Irregular</option>
+    </select>
+  </label>
+  <label>¿Cómo te sientes durante la menstruación?<br><textarea name="sintomas_menstruales"></textarea></label>
+
+  <hr>
+
+  <h2>🩺 Salud General</h2>
+  <label>¿Tomas suplementos o medicamentos?<br><textarea name="suplementos"></textarea></label>
+  <label>¿Tienes dolores o enfermedades?<br><textarea name="dolores"></textarea></label>
+  <label>¿Problemas digestivos frecuentes?<br><textarea name="digestivo"></textarea></label>
+
+  <hr>
+
+  <h2>🌿 Hábitos y Estilo de Vida</h2>
+  <label>¿Consumes alcohol o sustancias? ¿Frecuencia?<br><textarea name="sustancias"></textarea></label>
+  <label>¿Disfrutas tu tiempo de ocio?<br><textarea name="ocio"></textarea></label>
+
+  <hr>
+
+  <h2>📝 Comentarios Finales</h2>
+  <label>¿Algo más que te gustaría compartir?<br><textarea name="comentarios"></textarea></label>
+
+
+  <br>
+  <!-- ✨ Submit Button -->
+<div style="text-align: center; margin-top: 2.5rem;">
+  <button type="submit" style="
+    background: linear-gradient(to right, var(--lavo-lavender), var(--lavo-yellow));
+    color: var(--lavo-dark);
+    font-weight: bold;
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: 'Archivo Black', sans-serif;
+    box-shadow: 0 4px 14px rgba(202, 181, 226, 0.3);
+    transition: all 0.3s ease;
+  ">
+    Enviar formulario ✨
+  </button>
+</div>
+
+<!-- ✅ Final Fix – Terms Agreement -->
+<div style="text-align: center; margin-top: 2.5rem;">
+  <div style="
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--lavo-dark);
+    line-height: 1.4;
+    max-width: 480px;
+    margin: 0 auto;
+  ">
+
+    <input type="checkbox"
+           name="terminos"
+           id="terminos"
+           required
+           style="
+             width: 18px;
+             height: 18px;
+             margin: 0;
+             accent-color: var(--lavo-lavender);
+             flex-shrink: 0;
+             display: inline-block;
+             vertical-align: middle;
+           ">
+
+    <label for="terminos" style="margin: 0; display: inline-block; text-align: left;">
+      He leído y acepto los
+      <a href="/lavo-terminos" target="_blank" style="
+        color: var(--lavo-lavender);
+        font-weight: 600;
+        text-decoration: underline;
+        display: inline;
+      ">
+        Términos de Colaboración
+      </a>
+    </label>
+
+  </div>
+</div>
+
+
+
+  <br>
+  
+<script>
+  function handleLavoSubmit(e) {
+    e.preventDefault();
+    const selectedInterests = Array.from(document.querySelectorAll('input[name="intereses[]"]:checked')).map(el => el.value);
+    const hiddenSelect = document.getElementById("intereses");
+    hiddenSelect.innerHTML = "";
+    selectedInterests.forEach(val => {
+      const opt = new Option(val, val, true, true);
+      hiddenSelect.appendChild(opt);
+    });
+    e.target.submit();
+  }
+</script>
+
+<script>
+  const terminosLink = document.querySelector('a[href="/lavo-terminos"]');
+  const tooltip = document.getElementById('terminos-tooltip');
+  if (terminosLink && tooltip) {
+    terminosLink.addEventListener('mouseover', () => {
+      tooltip.classList.add('visible');
+    });
+    terminosLink.addEventListener('mouseout', () => {
+      tooltip.classList.remove('visible');
+    });
+  }
+
+  function handleLavoSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('lavo-intake-form');
+    form.innerHTML = `
+      <h2 style="text-align:center; color: var(--lavo-yellow); font-family: 'Archivo Black', sans-serif;">
+        ¡Formulario enviado con éxito! 💛
+      </h2>
+      <p style="text-align:center; font-size:1rem; font-family: 'Open Sans', sans-serif; color: var(--lavo-dark);">
+        Gracias por registrarte. Maruchi revisará tu información muy pronto.
+      </p>
+      <div style="text-align:center; margin-top: 2rem;">
+        <a href="/" class="cta" style="text-decoration: none; font-family: 'Archivo Black', sans-serif; padding: 0.8rem 2rem; background: linear-gradient(to right, var(--lavo-lavender), var(--lavo-yellow)); color: var(--lavo-dark); border-radius: 999px; display: inline-block;">⬅️ Volver al inicio</a>
+      </div>
+    `;
+  }
+  
+</script>
+
+</form>
