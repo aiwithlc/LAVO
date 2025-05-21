@@ -1,4 +1,4 @@
-<!-- 🌐 LAVO Concept Sticky Header with Mobile Menu -->
+<!-- 🌐 LAVO Concept Sticky Header with Gradient Mobile Menu -->
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Open+Sans&display=swap" rel="stylesheet">
 
 <style>
@@ -12,6 +12,7 @@
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
   font-family: 'Open Sans', sans-serif;
+  transition: background 0.3s ease;
 }
 
 .lavo-header-inner {
@@ -57,59 +58,65 @@
   transition: background 0.3s ease;
 }
 
+/* Button hover */
 .lavo-header-right .cta:hover {
   background: #F6D3D5;
 }
 
-/* Hamburger */
+/* Hamburger Toggle */
 .menu-toggle {
   display: none;
   background: none;
   border: none;
   font-size: 1.8rem;
   cursor: pointer;
+  color: #2A2B2A;
 }
 
-/* Spacer to avoid layout jump */
+/* Spacer */
 .lavo-header-spacer {
   height: 72px;
 }
 
-/* Mobile Styles */
+/* ✅ Mobile Styles */
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 1.5rem;
+    top: 1rem;
+    z-index: 10001;
+  }
+
   .lavo-header-inner {
     flex-direction: column;
     align-items: flex-start;
     padding: 1rem 1.5rem;
   }
 
-  .menu-toggle {
-    display: block;
-    position: absolute;
-    right: 1.5rem;
-    top: 1rem;
-  }
-
-  .lavo-header-center {
-    width: 100%;
-  }
-
   .lavo-header-center nav {
     display: none;
     flex-direction: column;
     width: 100%;
-    margin-top: 1rem;
+    margin-top: 4rem;
     gap: 1rem;
+    background: linear-gradient(to bottom right, #fef6fb, #f4f0fa);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   }
 
   .lavo-header-center nav.active {
     display: flex;
   }
 
-  .lavo-header-right .cta {
-    margin-top: 1rem;
-    width: 100%;
-    text-align: center;
+  .lavo-header-right {
+    display: none; /* 🔕 Hide CTA on mobile */
+  }
+
+  .lavo-header-center nav a {
+    font-size: 1.1rem;
+    font-weight: 600;
   }
 }
 </style>
