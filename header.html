@@ -121,7 +121,7 @@
 }
 </style>
 
-<!-- Sticky Header -->
+<!-- 🔗 HTML STRUCTURE -->
 <div class="lavo-global-header">
   <div class="lavo-header-inner">
     <div class="lavo-header-left">
@@ -130,24 +130,22 @@
       </a>
     </div>
 
-    <button class="menu-toggle" onclick="toggleLavoMenu()">☰</button>
-
-    <div class="lavo-header-center">
-      <nav id="lavoNav">
-        <a href="index.html">Inicio</a>
-        <a href="mensual.html">Planes</a>
-        <a href="Registro.html">Registro</a>
-        <a href="https://wa.me/18494672703" target="_blank">Contacto</a>
-      </nav>
-    </div>
+    <button class="menu-toggle" onclick="document.getElementById('lavoNav').classList.toggle('active')">☰</button>
 
     <div class="lavo-header-right">
       <a href="Login.html" class="cta">🔐 Ingresar</a>
     </div>
   </div>
+  
+<div class="lavo-header-spacer"></div>
+ <nav id="lavoNav">
+    <a href="index.html">Inicio</a>
+    <a href="mensual.html">Planes</a>
+    <a href="Registro.html">Registro</a>
+    <a href="https://wa.me/18494672703" target="_blank">Contacto</a>
+  </nav>
 </div>
 <div class="lavo-header-spacer"></div>
-
 <script>
 function toggleLavoMenu() {
   const nav = document.getElementById('lavoNav');
