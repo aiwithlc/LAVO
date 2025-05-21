@@ -1,4 +1,4 @@
-<!-- 🌐 LAVO Concept Sticky Header with Working Mobile Nav -->
+<!-- 🌐 LAVO Concept Sticky Header with Working Mobile Menu -->
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Open+Sans&display=swap" rel="stylesheet">
 
 <style>
@@ -12,7 +12,6 @@
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
   font-family: 'Open Sans', sans-serif;
-  transition: background 0.3s ease;
 }
 
 .lavo-header-inner {
@@ -25,20 +24,13 @@
   position: relative;
 }
 
+/* Logo */
 .lavo-header-left img {
   height: 60px;
   max-width: 140px;
 }
 
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: #2A2B2A;
-}
-
+/* Nav desktop */
 #lavoNav {
   display: flex;
   gap: 2rem;
@@ -56,6 +48,7 @@
   color: #CAB5E2;
 }
 
+/* CTA desktop */
 .lavo-header-right .cta {
   padding: 0.6rem 1.5rem;
   border-radius: 999px;
@@ -72,30 +65,39 @@
   background: #F6D3D5;
 }
 
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #2A2B2A;
+}
+
 .lavo-header-spacer {
   height: 72px;
 }
 
-/* ✅ Mobile */
+/* ✅ Mobile styles */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
     position: absolute;
-    right: 1.5rem;
-    top: 1rem;
-    z-index: 10001;
+    right: 2rem;
+    top: 1.2rem;
+    z-index: 1001;
   }
 
   #lavoNav {
     display: none;
     flex-direction: column;
     width: 100%;
-    margin-top: 1rem;
-    background: linear-gradient(to bottom right, #fef6fb, #f4f0fa);
-    padding: 1.5rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-    gap: 1rem;
+    background: linear-gradient(to bottom right, #fff7f8, #f4f0fa);
+    padding: 1.5rem 2rem;
+    gap: 1.2rem;
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    animation: fadeIn 0.3s ease-in-out;
   }
 
   #lavoNav.active {
@@ -107,13 +109,18 @@
   }
 
   #lavoNav a {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 600;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }
 </style>
 
-<!-- Header -->
+<!-- 🔗 HTML STRUCTURE -->
 <div class="lavo-global-header">
   <div class="lavo-header-inner">
     <div class="lavo-header-left">
@@ -122,13 +129,14 @@
       </a>
     </div>
 
-    <button class="menu-toggle" onclick="toggleLavoMenu()">☰</button>
+    <button class="menu-toggle" onclick="document.getElementById('lavoNav').classList.toggle('active')">☰</button>
 
     <div class="lavo-header-right">
       <a href="Login.html" class="cta">🔐 Ingresar</a>
     </div>
   </div>
 
+  <!-- 👇🏼 Place nav *outside* header-inner to toggle cleanly -->
   <nav id="lavoNav">
     <a href="index.html">Inicio</a>
     <a href="mensual.html">Planes</a>
@@ -137,9 +145,3 @@
   </nav>
 </div>
 <div class="lavo-header-spacer"></div>
-
-<script>
-function toggleLavoMenu() {
-  document.getElementById("lavoNav").classList.toggle("active");
-}
-</script>
