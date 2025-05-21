@@ -1,0 +1,98 @@
+<!-- Universal Login Gate – LAVO Branding -->
+<div id="client-login-gate" style="font-family: Poppins, sans-serif; max-width: 640px; margin: 60px auto; padding: 40px 30px; background: #ffffff; border-radius: 24px; box-shadow: 0 12px 40px rgba(0,0,0,0.06); text-align: center; animation: fadeIn 0.6s ease-out;">
+  <img src="https://cdn.jsdelivr.net/gh/aiwithlc/LAVO/Lavo%20Concept%20Elements.png" alt="LAVO Concept Logo" style="width: 100px; margin-bottom: 24px;" />
+  <h2 style="color: #FFD84B; font-size: 1.8rem; margin-bottom: 12px;">Área de Clientes 🔒</h2>
+  <p style="color: #555; font-size: 1rem; margin-bottom: 24px;">Ingresa tu nombre y contraseña para acceder a tu espacio privado.</p>
+
+  <input id="client-name" type="text" placeholder="Tu nombre" style="padding: 12px 20px; border-radius: 999px; border: 1px solid #ccc; width: 80%; max-width: 320px; font-size: 1rem; margin-bottom: 12px;" />
+
+  <input id="client-password" type="password" placeholder="Contraseña" style="padding: 12px 20px; border-radius: 999px; border: 1px solid #ccc; width: 80%; max-width: 320px; font-size: 1rem; margin-bottom: 12px;" onkeydown="if(event.key === 'Enter') validateClientLogin()" />
+
+  <div style="margin-bottom: 16px; font-size: 0.9rem;">
+    <label><input type="checkbox" id="remember-browser" style="margin-right: 6px;">Recordar este navegador</label>
+  </div>
+
+  <button onclick="validateClientLogin()" style="padding: 12px 28px; background: linear-gradient(to right, #FFD84B, #CAB5E2); border: none; border-radius: 999px; color: #2A2B2A; font-weight: 600; font-size: 1rem; cursor: pointer;">Entrar</button>
+
+  <p id="login-error" style="color: #d66; font-size: 0.9rem; margin-top: 12px; display: none;">Credenciales incorrectas. Inténtalo de nuevo.</p>
+
+  <!-- Forgot password -->
+  <p style="margin-top: 16px; font-size: 0.9rem;">
+    <a href="https://wa.me/16479871874?text=Hola%20Maru%2C%20olvid%C3%A9%20mi%20contrase%C3%B1a%20para%20mi%20cuenta%20LAVO.%20%C2%BFPuedes%20ayudarme%3F" 
+       target="_blank" 
+       style="color: #CAB5E2; text-decoration: underline;">
+      ¿Olvidaste tu contraseña?
+    </a>
+  </p>
+
+  <!-- Show logout button if session is active -->
+  <div id="logout-zone" style="margin-top: 20px; display: none;">
+    <button onclick="logoutClient()" style="background: none; color: #bbb0e0; border: none; font-size: 0.9rem; cursor: pointer; text-decoration: underline;">
+      Cerrar sesión 🔒
+    </button>
+  </div>
+</div>
+
+<style>
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<script>
+  // Client credentials (can use name or email)
+  const clients = {
+    "lau": {
+      password: "lau123",
+      dashboard: "/lavo-client-lau"
+    },
+    "natalia": {
+      password: "nataClient2024",
+      dashboard: "/lavo-client-natalia"
+    },
+    "diana": {
+      password: "didiClient2024",
+      dashboard: "/lavo-client-diana"
+    }
+    // Add more clients here 🔥
+  };
+
+  function validateClientLogin() {
+    const nameInput = document.getElementById('client-name').value.trim().toLowerCase();
+    const passwordInput = document.getElementById('client-password').value;
+    const remember = document.getElementById('remember-browser').checked;
+
+    if (clients[nameInput] && clients[nameInput].password === passwordInput) {
+      if (remember) localStorage.setItem("clientRemembered", nameInput);
+      sessionStorage.setItem("clientUnlocked", "true");
+      sessionStorage.setItem("lastLoginTime", Date.now().toString());
+      sessionStorage.setItem("clientName", nameInput);
+
+      // Redirect to personal dashboard
+      window.location.href = clients[nameInput].dashboard;
+    } else {
+      document.getElementById('login-error').style.display = "block";
+    }
+  }
+
+  function logoutClient() {
+    sessionStorage.clear();
+    localStorage.removeItem("clientRemembered");
+    window.location.href = "/lavo-login";
+  }
+
+  // Auto-login or show logout button
+  document.addEventListener("DOMContentLoaded", () => {
+    const rememberedName = localStorage.getItem("clientRemembered");
+    const sessionName = sessionStorage.getItem("clientName");
+
+    if (rememberedName && clients[rememberedName]) {
+      window.location.href = clients[rememberedName].dashboard;
+    }
+
+    if (sessionName && clients[sessionName]) {
+      document.getElementById('logout-zone').style.display = "block";
+    }
+  });
+</script>
