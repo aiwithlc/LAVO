@@ -32,16 +32,26 @@
   align-items: center;
 }
 
+/* 👇🏼 Force logo flush left */
+.lavo-header-left {
+  justify-self: start;
+}
+
 .lavo-header-center {
-  flex-grow: 1;
   justify-content: center;
 }
 
+.lavo-header-right {
+  justify-self: end;
+}
+
+/* LOGO */
 .lavo-global-header .logo img {
   height: 60px;
   max-width: 140px;
 }
 
+/* NAV */
 .lavo-header-center nav {
   display: flex;
   gap: 2rem;
@@ -59,6 +69,7 @@
   color: #CAB5E2;
 }
 
+/* CTA */
 .lavo-header-right .cta {
   padding: 0.6rem 1.5rem;
   border-radius: 999px;
@@ -71,19 +82,23 @@
   transition: background 0.3s ease;
 }
 
+/* Button hover */
 .lavo-header-right .cta:hover {
   background: #F6D3D5;
 }
 
+/* Spacer */
 .lavo-header-spacer {
   height: 72px;
 }
 
-/* Mobile styles */
+/* ✅ Mobile Styles */
 @media (max-width: 768px) {
   .lavo-header-inner {
     flex-direction: column;
+    display: flex;
     align-items: flex-start;
+    padding: 1rem 1.5rem;
   }
 
   .lavo-header-center nav {
