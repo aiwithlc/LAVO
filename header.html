@@ -1,5 +1,6 @@
-<!-- 🌐 LAVO Concept Sticky Global Header -->
+<!-- 🌐 LAVO Concept Sticky Header with Mobile Menu -->
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Open+Sans&display=swap" rel="stylesheet">
+
 <style>
 .lavo-global-header {
   position: fixed;
@@ -11,47 +12,22 @@
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
   font-family: 'Open Sans', sans-serif;
-  transition: background 0.3s ease;
 }
 
 .lavo-header-inner {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
   max-width: 1200px;
-  width: 100%;
   margin: 0 auto;
   padding: 0.8rem 2rem;
-  box-sizing: border-box;
-}
-
-.lavo-header-left,
-.lavo-header-center,
-.lavo-header-right {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-/* 👇🏼 Force logo flush left */
-.lavo-header-left {
-  justify-self: start;
-}
-
-.lavo-header-center {
-  justify-content: center;
-}
-
-.lavo-header-right {
-  justify-self: end;
-}
-
-/* LOGO */
-.lavo-global-header .logo img {
+.lavo-header-left img {
   height: 60px;
   max-width: 140px;
 }
 
-/* NAV */
 .lavo-header-center nav {
   display: flex;
   gap: 2rem;
@@ -69,7 +45,6 @@
   color: #CAB5E2;
 }
 
-/* CTA */
 .lavo-header-right .cta {
   padding: 0.6rem 1.5rem;
   border-radius: 999px;
@@ -82,41 +57,64 @@
   transition: background 0.3s ease;
 }
 
-/* Button hover */
 .lavo-header-right .cta:hover {
   background: #F6D3D5;
 }
 
-/* Spacer */
+/* Hamburger */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Spacer to avoid layout jump */
 .lavo-header-spacer {
   height: 72px;
 }
 
-/* ✅ Mobile Styles */
+/* Mobile Styles */
 @media (max-width: 768px) {
   .lavo-header-inner {
     flex-direction: column;
-    display: flex;
     align-items: flex-start;
     padding: 1rem 1.5rem;
   }
 
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 1.5rem;
+    top: 1rem;
+  }
+
+  .lavo-header-center {
+    width: 100%;
+  }
+
   .lavo-header-center nav {
+    display: none;
     flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
     gap: 1rem;
-    margin-top: 0.5rem;
+  }
+
+  .lavo-header-center nav.active {
+    display: flex;
   }
 
   .lavo-header-right .cta {
     margin-top: 1rem;
-    align-self: stretch;
+    width: 100%;
     text-align: center;
   }
 }
-
 </style>
 
-<!-- Sticky nav + spacer -->
+<!-- Sticky Header -->
 <div class="lavo-global-header">
   <div class="lavo-header-inner">
     <div class="lavo-header-left">
@@ -125,8 +123,10 @@
       </a>
     </div>
 
+    <button class="menu-toggle" onclick="toggleLavoMenu()">☰</button>
+
     <div class="lavo-header-center">
-      <nav>
+      <nav id="lavoNav">
         <a href="index.html">Inicio</a>
         <a href="mensual.html">Planes</a>
         <a href="Registro.html">Registro</a>
@@ -141,3 +141,9 @@
 </div>
 <div class="lavo-header-spacer"></div>
 
+<script>
+function toggleLavoMenu() {
+  const nav = document.getElementById('lavoNav');
+  nav.classList.toggle('active');
+}
+</script>
