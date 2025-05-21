@@ -1,0 +1,68 @@
+
+
+<!-- LAVO Concept: Mensual Membership Sales Page -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Open+Sans&display=swap" rel="stylesheet">
+
+<div id="lavo-mensual" style="font-family: 'Open Sans', sans-serif; background: linear-gradient(to bottom right, #fff7f8, #f4f0fa); color: #2A2B2A; max-width: 800px; margin: 60px auto; padding: 40px 24px; border-radius: 24px; box-shadow: 0 12px 40px rgba(0,0,0,0.06);">
+
+  <!-- Header -->
+  <div style="text-align: center; margin-bottom: 40px;">
+    <img src="https://cdn.jsdelivr.net/gh/aiwithlc/LAVO/Lavo%20Concept%20Elements.png" alt="LAVO Concept Logo" style="width: 100px; margin-bottom: 20px;">
+    <h1 style="font-family: 'Archivo Black', sans-serif; font-size: 2rem; color: #FFD84B;">Membresía Mensual</h1>
+    <p style="max-width: 600px; margin: 0 auto;">Acceso completo a entrenamientos grupales, guía mensual y seguimiento. Diseñado para transformar tu cuerpo y mente sin sacrificar tu estilo de vida.</p>
+  </div>
+
+  <!-- Price Highlight -->
+  <div style="background: #fff; padding: 1.5rem; border-radius: 16px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin-bottom: 30px;">
+    <h2 style="font-family: 'Archivo Black', sans-serif; color: #E3B900; font-size: 1.6rem;">$3,300 RD / $55 USD</h2>
+    <p style="font-size: 0.95rem; color: #555;">Renovación mensual. Cancela cuando quieras.</p>
+    <button onclick="document.getElementById('payment-methods').style.display='block'; this.style.display='none';" 
+      style="margin-top: 16px; background: linear-gradient(to right, #CAB5E2, #FFD84B); font-family: 'Archivo Black', sans-serif; color: #2A2B2A; border: none; padding: 1rem 2rem; border-radius: 999px; cursor: pointer; font-size: 1rem; box-shadow: 0 4px 14px rgba(202, 181, 226, 0.3);">
+      ✨ Elegir Método de Pago
+    </button>
+  </div>
+
+  <!-- Hidden Payment Options -->
+  <div id="payment-methods" style="display: none;">
+    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+
+      <!-- Banco Popular -->
+      <details style="border: 1px solid #CAB5E2; padding: 1rem; border-radius: 12px;">
+        <summary style="font-weight: bold; font-family: 'Archivo Black', sans-serif; cursor: pointer;">🏦 Banco Popular Dominicano</summary>
+        <p style="margin-top: 0.5rem;">Nombre: LAVO Concept<br>Número de cuenta: 123-456-789<br>Tipo: Ahorros</p>
+        <p>📲 Envía comprobante a <a href="https://wa.me/18494672703" target="_blank">WhatsApp</a></p>
+      </details>
+
+      <!-- MercadoPago -->
+      <details style="border: 1px solid #CAB5E2; padding: 1rem; border-radius: 12px;">
+        <summary style="font-weight: bold; font-family: 'Archivo Black', sans-serif; cursor: pointer;">🇦🇷 Transferencia vía MercadoPago</summary>
+        <p style="margin-top: 0.5rem;">Alias: lavoconcept.mp<br>CBU: 0000003100000000123456</p>
+        <p>📲 Enviar comprobante por <a href="https://wa.me/18494672703" target="_blank">WhatsApp</a></p>
+      </details>
+
+      <!-- Qik -->
+      <details style="border: 1px solid #CAB5E2; padding: 1rem; border-radius: 12px;">
+        <summary style="font-weight: bold; font-family: 'Archivo Black', sans-serif; cursor: pointer;">📲 Pago por Qik (tarjeta)</summary>
+        <p style="margin-top: 0.5rem;">Haz clic para pagar con tarjeta directamente en Qik:</p>
+        <a href="https://www.qik.do/pagolavo" target="_blank" style="display: inline-block; padding: 0.8rem 1.5rem; background: #FFD84B; color: #2A2B2A; border-radius: 999px; text-decoration: none; font-weight: bold;">Ir a Qik</a>
+      </details>
+
+      <!-- Cripto -->
+      <details style="border: 1px solid #CAB5E2; padding: 1rem; border-radius: 12px;">
+        <summary style="font-weight: bold; font-family: 'Archivo Black', sans-serif; cursor: pointer;">🪙 Cripto / USDT</summary>
+        <p style="margin-top: 0.5rem;">Red: TRC20<br>Wallet: TXoP4XQdi34rWxZT5RtUJLy6mS9Xy3DpAq</p>
+        <p>📲 Envía comprobante a <a href="https://wa.me/18494672703" target="_blank">WhatsApp</a></p>
+      </details>
+
+    </div>
+
+    <!-- Confirm Button -->
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="https://wa.me/18494672703?text=Hola!%20Acabo%20de%20realizar%20mi%20pago%20para%20la%20membresía%20mensual%20de%20LAVO%20Concept.%20Aquí%20está%20mi%20comprobante..." 
+         target="_blank"
+         style="display: inline-block; padding: 1rem 2rem; margin-top: 12px; background: linear-gradient(to right, #CAB5E2, #FFD84B); color: #2A2B2A; font-weight: bold; font-family: 'Archivo Black', sans-serif; border-radius: 999px; text-decoration: none; box-shadow: 0 4px 14px rgba(202, 181, 226, 0.3);">
+        ✅ Confirmar y Enviar Comprobante
+      </a>
+    </div>
+  </div>
+</div>
